@@ -8,7 +8,7 @@ export const products = [
   },
   {
     id: 2,
-    name: 'Smartphone 5G',
+    name: 'Laptop Gamer',
     description: 'Teléfono de última generación con conectividad 5G.',
     stock: 30,
     price: 800,
