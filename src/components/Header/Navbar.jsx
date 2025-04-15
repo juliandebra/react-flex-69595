@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
 import CartWidget from './CartWidget'
+import { Link, useNavigate } from 'react-router'
 
 const Navbar = () => {
+  const navigate = useNavigate()
+
   return (
     <header>
       <img src='/vite.svg' alt='logo' />
       <nav>
-        <a href='#'>Home</a>
-        <a href='#'>About</a>
-        <a href='#'>Contact</a>
+        <Link to='/'>Home</Link>
+        <Link to='/contact'>Contact</Link>
       </nav>
 
       <CartWidget />

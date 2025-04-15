@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import fetchData from '../services/fetchData'
-import ItemList from './ItemList'
+import { fetchData } from '../services/fetchData'
+import ItemList from '../components/ItemListContainer/ItemList'
 
 const ItemListContainer = ({ greeting }) => {
   const [list, setList] = useState([])
@@ -11,6 +11,7 @@ const ItemListContainer = ({ greeting }) => {
       setList(res)
     })
   }, [])
+  // Filtrado de productos
 
   return (
     <div>
