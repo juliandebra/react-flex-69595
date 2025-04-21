@@ -1,4 +1,38 @@
 #root {
-  max-width: 1280px;
   text-align: center;
+}
+
+body {
+  margin: 0;
+}
+header {
+  padding: 0;
+  background-color: crimson;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 80px;
+  font-size: 24px;
+}
+header img {
+  width: 80px;
+}
+header nav a {
+  margin: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+}
+
+.card {
+  min-width: 400px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid tomato;
 }
