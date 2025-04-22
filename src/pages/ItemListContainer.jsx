@@ -1,24 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { fetchData } from '../services/fetchData'
 import ItemList from '../components/ItemListContainer/ItemList'
+import { useGlobalStates } from '../context/Context'
+import Loader from '../components/Loader'
 
-const ItemListContainer = ({ greeting }) => {
-  const [list, setList] = useState([])
+const ItemListContainer = () => {
+  const { list, loading } = useGlobalStates()
 
-  useEffect(() => {
-    fetchData().then(res => {
-      console.log(res)
-      setList(res)
-    })
-  }, [])
-  // Filtrado de productos
+  // Filtrado de productos por categoría
 
-  return (
-    <div>
-      <h1>{greeting}</h1>
-      <ItemList list={list} />
-    </div>
-  )
+  return <div>{loading ? <Loader /> : <ItemList list={list} />}</div>
 }
 
 export default ItemListContainer
