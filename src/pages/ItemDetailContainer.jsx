@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import Counter from '../components/Counter'
 import { useGlobalStates } from '../context/Context'
 import Loader from '../components/Loader'
+import { getProductById } from '../services/firebaseServices'
 
 const ItemDetailContainer = () => {
   const [detail, setDetail] = useState({})
@@ -13,7 +14,8 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     setLoading(true)
-    fetchDataById(id).then(res => {
+    getProductById(id).then(res => {
+      console.log(res)
       setDetail(res)
       setLoading(false)
     })
@@ -29,6 +31,7 @@ const ItemDetailContainer = () => {
         <Loader />
       ) : (
         <>
+          <img src={detail.image} alt='' width={300} />
           <h2>{detail.name}</h2>
           <p>{detail.description}</p>
           <h3>Stock: {detail.stock}</h3>
