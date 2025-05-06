@@ -5,9 +5,11 @@ import {
   getDoc,
   getDocs,
   query,
+  updateDoc,
   where,
 } from 'firebase/firestore'
 import { db } from '../config/firebaseConfig'
+import Swal from 'sweetalert2'
 
 export const getProducts = async () => {
   const prodCollection = collection(db, 'Productos')
@@ -39,5 +41,19 @@ export const createOrder = async newOrder => {
   } catch (err) {
     console.log(err)
     throw new Error(err)
+  }
+}
+export const updateStock = async (id, stock) => {
+  try {
+    const prodDoc = doc(db, 'Productos', id)
+    const result = await updateDoc(prodDoc, { stock: prodDoc.stock - stock })
+    return result
+  } catch (err) {
+    console.log(err)
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Error al actualizar elemento',
+    })
   }
 }

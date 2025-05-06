@@ -7,19 +7,25 @@ const Cart = () => {
   console.log(cart)
 
   return (
-    <div>
-      {cart.map(prod => (
-        <div key={prod.id} className='card'>
-          <h3>{prod.title}</h3>
-          <h4>${prod.price}</h4>
-          <h4>Cantidad: {prod.quantity}</h4>
-          <h3>Subtotal: ${prod.price * prod.quantity}</h3>
-        </div>
-      ))}
+    <>
+      {cart.length === 0 ? (
+        <h1>Debe agregar productos al carrito </h1>
+      ) : (
+        <div>
+          {cart.map(prod => (
+            <div key={prod.id} className='card'>
+              <h3>{prod.title}</h3>
+              <h4>${prod.price}</h4>
+              <h4>Cantidad: {prod.quantity}</h4>
+              <h3>Subtotal: ${prod.price * prod.quantity}</h3>
+            </div>
+          ))}
 
-      <h1>Total: ${calcularTotal}</h1>
-      <Link to='/checkout'>Finalizar compra</Link>
-    </div>
+          <h1>Total: ${calcularTotal}</h1>
+          <Link to='/checkout'>Finalizar compra</Link>
+        </div>
+      )}
+    </>
   )
 }
 
