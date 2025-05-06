@@ -12,15 +12,6 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* 
-        //Ejemplo de children
-      <Home algunValor='Algun texto'>
-        <h1>Hola que tal</h1>
-        <ul>
-          <li>Elemento 1</li>
-          <li>Elemento 2</li>
-        </ul>
-      </Home> */}
       <Routes>
         <Route path='/' element={<ItemListContainer />} />
         <Route path='/category/:category' element={<ItemListContainer />} />
